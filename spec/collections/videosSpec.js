@@ -1,6 +1,6 @@
 describe ('VideosCollection', function() {
 
-  xdescribe('when retrieving live data from YouTube', function() {
+  describe('when retrieving live data from YouTube', function() {
     var collection;
 
     beforeEach(function() {
@@ -21,7 +21,7 @@ describe ('VideosCollection', function() {
       expect(collection.fetch).to.have.been.called;
     });
 
-    it('should initiate an ajax request when search is called with the specified data', function() {
+    xit('should initiate an ajax request when search is called with the specified data', function() {
       collection.search('something_to_search_for');
       expect(collection.fetch).to.have.been.calledWithMatch({data: {q: 'something_to_search_for'}});
     });
@@ -29,7 +29,9 @@ describe ('VideosCollection', function() {
     it('should convert the fetched data into an array', function() {
       expect(collection.parse).to.be.a('function');
       var response = collection.parse({ items: fakeVideoData });
-      expect(response).to.be.equal(fakeVideoData);
+      console.log('thisresp' , response);
+      console.log(fakeVideoData);
+      expect(response).to.be.deep.equal(fakeVideoData);
     });
 
   });

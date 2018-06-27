@@ -11,7 +11,6 @@ var VideoPlayerView = Backbone.View.extend({
 
   render: function(video) {
     this.$el.html(this.template(video));
-    console.log(this.collection);
     return this;
     
   },
